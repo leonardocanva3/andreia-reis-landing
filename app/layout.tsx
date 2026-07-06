@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const siteUrl = "https://andreiareis.com.br";
+const googleAdsTagId = "AW-16872718184";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -68,7 +70,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          id="google-ads-tag"
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsTagId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAdsTagId}');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
