@@ -40,6 +40,17 @@ export function Footer() {
           </a>
         </div>
       </div>
+      <p className="mx-auto mt-6 px-5 text-center text-[11px] leading-relaxed text-stone-400 sm:text-xs">
+        Site e SEO Google feito por:{" "}
+        <a
+          href="https://www.oleonardomachado.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-[#596d55]"
+        >
+          www.oleonardomachado.com.br
+        </a>
+      </p>
     </footer>
   );
 }
